@@ -15,6 +15,12 @@ fi
 
 pint_command=("pint")
 
+if [[ "${INPUT_ONLYFILES}" ]]; then
+  for file in ${INPUT_ONLYFILES}; do
+    pint_command+=" ${file}"
+  done
+fi
+
 if [[ "${INPUT_TESTMODE}" == true ]]; then
   pint_command+=" --test"
 fi
