@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-pint_install_command=("composer global require laravel/pint:PINT_VERSION --no-progress --dev")
+pint_install_command=("composer global require laravel/pint:PINT_VERSION staabm/annotate-pull-request-from-checkstyle --no-progress --dev")
 
 if [[ "${INPUT_PINTVERSION}" ]]
 then
@@ -40,6 +40,8 @@ fi
 if [[ "${INPUT_ONLYDIRTY}" ]]; then
   pint_command+=" --dirty"
 fi
+
+pint_command+=" --format=checkstyle | cs2pr"
 
 echo "Running Command: " "${pint_install_command[@]}"
 
