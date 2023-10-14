@@ -6,7 +6,7 @@ GitHub Action implementation of the [Laravel Pint](https://github.com/laravel/pi
 
 Use with [GitHub Actions](https://github.com/features/actions)
 
-_.github/workflows/pint.yml
+_.github/workflows/pint.yml_
 
 ```
 name: PHP Linting
@@ -15,9 +15,14 @@ jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v1
+        - uses: actions/checkout@v3
+
+        - name: Get changed files
+          id: changed-files
+          uses: tj-actions/changed-files@v39
+
         - name: "laravel-pint"
-          uses: aglipanci/laravel-pint-action@2.0.0
+          uses: sergotail/laravel-pint-action@1.0.1
           with:
             preset: laravel
             verboseMode: true
@@ -25,9 +30,10 @@ jobs:
             configPath: "vendor/my-company/coding-style/pint.json"
             pintVersion: 1.8.0
             onlyDirty: true
+            onlyFiles: ${{ steps.changed-files.outputs.all_changed_files }}
           
 ```
-ℹ️ Starting from version 2 you can specify the Pint version to be used by specifying a `pintVersion` in your configuration file.
+ℹ️ Also you can specify the Pint version to be used by specifying a `pintVersion` in your configuration file.
 
 If provided, a `pint.json` file in the root will be used for configuration during run of the Action.
 
