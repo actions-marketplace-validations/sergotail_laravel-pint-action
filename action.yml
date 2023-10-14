@@ -29,6 +29,10 @@ inputs:
   useComposer:
     description: "Use Laravel Pint version from project composer lock file. Lock file must be preset to use this flag."
     required: false
+
+  onlyFiles:
+    description: "List of files to run pint on"
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -40,6 +44,7 @@ runs:
     - ${{ inputs.only-dirty }}
     - ${{ inputs.pint-version }}
     - ${{ inputs.use-composer }}
+    - ${{ inputs.only-files }}
 branding:
   icon: 'eye'  
   color: 'gray-dark'
