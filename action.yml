@@ -1,4 +1,4 @@
-name: 'Laravel Pint'
+name: 'Laravel Pint Action'
 description: 'Laravel Pint is an opinionated PHP code style fixer for minimalists.'
 author: 'Agli Panci <agli.panci@gmail.com>'
 inputs:
