@@ -1,6 +1,6 @@
 name: 'Laravel Pint Action'
 description: 'Laravel Pint is an opinionated PHP code style fixer for minimalists.'
-author: 'Agli Panci <agli.panci@gmail.com>'
+author: 'Sergey Pronin <sergotail@mail.ru>'
 inputs:
   testMode:
     description: "would you like to run Pint on test mode"
